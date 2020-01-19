@@ -1,0 +1,48 @@
+#screen2
+{
+    display: none;
+}
+.linkTo {
+    cursor: pointer;
+}
+.linkTo:hover {
+    color: blue;
+}
+.article {
+    display: none;
+}
+.titreListe
+{
+    font-weight: bold;
+}
+.footer
+{
+    height: 50px;
+ 
+    background-color: lightgray;
+}
+
+#boutonAdd {
+    background-color: #39BBC5;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 7px 20px;
+    text-decoration: none;
+    text-shadow: 0px 0px 3px #00000050;
+    text-decoration: none !important;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    z-index: 99;
+
+}
+
+#boutonAdd:hover {
+    background-color: #ffffff;
+    color: #39BBC5;
+}

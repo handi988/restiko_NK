@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="asset/css/bootstrap.css">
+    <link rel="stylesheet" href="asset/css/style.css">
+</head>
+
+<body>
+    <!-- En tete  -->
+    <div id="mainScreen">
+        <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <h1 class="display-4">Application restiko</h1>
+            <p class="lead"> ici vous pouvez retrouver toute mes Veille durant ma formation à la CCISM</p>
+        </div>
+        </div>
+        <div class="container">
+                    <div class="row">
+                        <div class="col text-center mb-5">
+                            <span class="titreListe" > Voici la liste de mes Restiko </span>
+                        </div>
+                    </div>
+                 
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th class="text-center" scope="col">Date</th>
+                            <th class="text-center" scope="col ">Ce que j'ai fait </th>
+                            <th class="text-center" scope="col">En savoir plus</th>
+                          </tr>
+                        </thead>
+                        
+                        <tbody id="articleList">
+                                
+                         </tbody>
+                        
+                    </table>
+        </div>
+        
+                
+            
+        
+       
+        
+    </div>
+
+    <div id=screen2>
+            <!-- En tete  -->
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container text-center">
+                <h1 class="display-4 titre article">restiko de Kim Nechachby</h1>
+            </div>
+        </div>
+        <div id="articleDetail">   
+        </div>
+
+        
+        
+    </div>
+    <div class="container-fluid footer">
+        <div class="row">
+            <div class="col text-center mt-2"> 
+            <span class="lead mt-2" > Tout droit reserver</span>
+
+            </div>
+        </div>
+    </div>
+ <!-- Ajout de restiko  -->
+    <button id="boutonAdd" type="button" class="btn" data-toggle="modal" data-target="#ajoutRestiko">+</button>
+
+    <div class="modal fade" id="ajoutRestiko" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Ajouter un nouveuax restiko </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Date</label>
+                        <input type="date" class="form-control newRestikoDate" id="formGroupExampleInput" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">Ce que j'ai fait ?</label>
+                        <input type="text" class="form-control jAiFait" id="formGroupExampleInput2" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput3">Ce que j'ai appris ?</label>
+                        <input type="text" class="form-control jAiAppris" id="formGroupExampleInput3" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput4">Ce que j'ai aimé ?</label>
+                        <input type="text" class="form-control jAiAime" id="formGroupExampleInput4" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput5">Ce que utilisé de Nouveuax  ?</label>
+                        <input type="text" class="form-control utiliserNouveau" id="formGroupExampleInput5" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput6">Problématique rencontré ?</label>
+                        <input type="text" class="form-control problematique" id="formGroupExampleInput6" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput7">Quelles sont les objectif  ?</label>
+                        <input type="text" class="form-control  quelleObjectif" id="formGroupExampleInput7" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput8">Ce qui m'as manqué ? ?</label>
+                        <input type="text" class="form-control ChampManquer" id="formGroupExampleInput8" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput9">Ce que je ferais à la place du formateur  ?</label>
+                        <input type="text" class="form-control champFormateur" id="formGroupExampleInput9" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput10">Objectif  ?</label>
+                        <input type="text" class="form-control checkObjectif" id="formGroupExampleInput10" placeholder="">
+                    </div>
+                  
+                    <div class="form-group">
+                        <label for="formGroupExampleInput11">votre note  ?</label>
+                        <input type="text" class="form-control champNote" id="formGroupExampleInput11" placeholder="">/5 
+                    </div>
+                    
+                      
+                  
+                    
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="addRestiko()" data-dismiss="modal">Validez</button>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- Modifier le restiko  -->
+      <div class="modal fade" id="modifiRestiko" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">modifiRestiko </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="formGroupExampleModif">Date</label>
+                        <input type="date" class="form-control newRestikoDate" id="modifDate" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">Ce que j'ai fait ?</label>
+                        <input type="text" class="form-control jAiFait" id="modifFait" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleModif3">Ce que j'ai appris ?</label>
+                        <input type="text" class="form-control jAiAppris" id="modifAppris" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleModif4">Ce que j'ai aimé ?</label>
+                        <input type="text" class="form-control jAiAime" id="modifAimer" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleModif5">Ce que utilisé de Nouveuax  ?</label>
+                        <input type="text" class="form-control utiliserNouveau" id="modifNouveau" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleModif6">Problématique rencontré ?</label>
+                        <input type="text" class="form-control problematique" id="modifprobleme" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExamplemodif7">Quelles sont les objectif  ?</label>
+                        <input type="text" class="form-control  quelleObjectif" id="modifObjectif" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleModif8">Ce qui m'as manqué ? ?</label>
+                        <input type="text" class="form-control ChampManquer" id="objectifmanquer" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleModif9">Ce que je ferais à la place du formateur  ?</label>
+                        <input type="text" class="form-control champFormateur" id="modifFormateur" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleModif10">Objectif  ?</label>
+                        <input type="text" class="form-control checkObjectif" id="modifCheck" placeholder="">
+                    </div>
+                  
+                    <div class="form-group">
+                        <label for="formGroupExampleModif11">votre note  ?</label>
+                        <input type="text" class="form-control champNote" id="modifNote" placeholder="">/5 
+                    </div>
+                    
+                      
+                  
+                    
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="addRestiko()" data-dismiss="modal">Validez</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+    
+
+
+    <!-- script -->
+    <script src="asset/js/jquery-3.4.1.min.js"></script>
+    <script src="asset/js/bootstrap.min.js"></script>
+    <script src="asset/js/popper.min.js"></script>
+    <script src="asset/js/airtable.browser.js"></script>
+    <script src="asset/js/config.js"></script>
+    <script src="asset/js/script.js"></script>
+</body>
+
+</html>

@@ -1,15 +1,12 @@
 console.log("local",localStorage.getItem('user'))
 console.log("local2", localStorage.getItem('mdp'))
+$('#conect').show();
+$('#mainScreen').hide();
 
 // localStorage
 if (localStorage.getItem('user') != null || localStorage.getItem('mdp') != null) {
     $('#conect').hide();
     $('#mainScreen').show();
-
-   }
-   else{
-    $('#conect').show();
-    $('#mainScreen').hide();
    }
 
 // connection 

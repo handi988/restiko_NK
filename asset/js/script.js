@@ -1,121 +1,55 @@
+// varaible global
 
-var templateListe =
-'<tr id="###articleId###">'+
-    '<td class="text-center">###Date###</td>'+
-    '<td class="text-center">###Titre###</td>'+
-    '<td class="text-center linkTo test" onclick="displayArticle(\'###param###\')">Lire le Restiko</td>'+
-'</tr>';
 
-var restikoTemplate = 
-'<div class="container text-center article ###articleId###">'+
-    '<div class="row mt-2 font-weight-bold">'+
-        '<div class="col">'+
-            'Le Restiko du ###date###'+
-        '</div>'+
-    '</div>'+
-    '<div class="row mt-2 font-weight-bold">'+
-        '<div class="col">'+
-        'Ce que j\'ai fait'+
-        '</div>'+
-    '</div>'+
-    '<div class="row">'+
-        '<div class="col mt-2">'+
-            '###Fait###'+
-        '</div>'+
-    '</div>'+
-    '<div class="row mt-2 font-weight-bold">'+
-        '<div class="col">'+
-        'Ce que j\'ai appris'+
-        '</div>'+
-    '</div>'+
-    '<div class="row mt-2">'+
-        '<div class="col mt-2">'+
-            '###appris###'+
-        '</div>'+
-    '</div>'+
-    '<div class="row mt-2 font-weight-bold">'+
-        '<div class="col">'+
-            'Ce que j\'ai aimer'+
-        '</div>'+
-    '</div>'+
-    '<div class="row mt-2">'+
-        '<div class="col">'+
-            '###aimer###'+
-        '</div>'+
-    '</div>'+
-    '<div class="row mt-2 font-weight-bold">'+
-        '<div class="col">'+
-            'Ce que j\'ai utilisé de nouveaux'+
-        '</div>'+
-    '</div>'+
-    '<div class="row mt-2">'+
-        '<div class="col">'+
-            '###nouveau###'+
-        '</div>'+
-    '</div>'+
-    '<div class="row mt-2 font-weight-bold">'+
-        '<div class="col">'+
-            'Problématique rencontrée'+
-        '</div>'+
-    '</div>'+
-    '<div class="row mt-2">'+
-        '<div class="col">'+
-            '###probleme###'+
-        '</div>'+
-    '</div>'+
-    '<div class="row mt-2 font-weight-bold">'+
-        '<div class="col">'+
-            'Quelle sont les objectifs'+
-        '</div>'+
-    '</div>'+
-    '<div class="row mt-2">'+
-        '<div class="col">'+
-            '###objectif###'+
-        '</div>'+
-    '</div>'+
-    '<div class="row mt-2 font-weight-bold">'+
-        '<div class="col">'+
-            'Qu\'est qui m\'as manquer?'+
-        '</div>'+
-    '</div>'+
-    '<div class="row mt-2">'+
-        '<div class="col">'+
-            '###manque###'+
-        '</div>'+
-    '</div>'+
-    '<div class="row mt-2 font-weight-bold">'+
-        '<div class="col">'+
-            'Obectif atteint ?'+
-        '</div>'+
-    '</div>'+
-    '<div class="row mt-2">'+
-        '<div class="col">'+
-            '###atteint###'+
-        '</div>'+
-    '</div>'+
-    '<div class="row mt-2 font-weight-bold">'+
-        '<div class="col">'+
-            'Note '+
-        '</div>'+
-    '</div>'+
-    '<div class="row mt-2">'+
-        '<div class="col">'+
-            '###note###'+
-        '</div>'+
-    '</div>'+
-    '<div class="row" mt-4>'+
-        '<div class="col">'+
-            '<div class="linkTo" onclick="backlisting ()">Retour à la liste</div>'+
-        '</div>'+
-    
+// connextion 
+function conect () {
 
-        '<div class="col">'+
-        '<button id="modifResti" type="button" class="btn" data-toggle="modal" data-target="#modifiRestiko">Modification du restiko</button>'+
-        '</div>'+
-    '</div>'+
+
+    base('admin').select({
+        // Selecting the first 3 records in Grid view:
+        maxRecords: 3,
+        view: "Grid view"
+    }).eachPage(function page(records, fetchNextPage) {
+        // This function (`page`) will get called for each page of records.
     
+        records.forEach(function(record) {
+          
     
-'</div>';
+            if($("#loginAdmin").val() == record.get('user'))
+            {
+                if($('#mdpAdmin').val() == record.get('password')){
+                    // alert ("ok")
+                    sessionStorage.setItem('user', record.get('user'))
+                    sessionStorage.setItem('mdp', record.get('password'))
+
+                    GoMainScrenn()
+                }
+                else{
+                    if($('#loginAdmin').val("")){
+                        alert("veuillez entrer un mot de passe")
+                    }
+                }
+
+            }
+           
+        });
+    
+        // To fetch the next page of records, call `fetchNextPage`.
+        // If there are more records, `page` will get called again.
+        // If there are no more records, `done` will get called.
+        fetchNextPage();
+    
+    }, function done(err) {
+        if (err) { console.error(err); return; }
+    });
+    
+    }
+// changement d'écran 
+
+    function GoMainScrenn(){
+        $('#conect').hide();
+       $('#mainScreen').show();
+   }
 
 
 // recuperation des donnee 
@@ -247,4 +181,6 @@ var restikoTemplate =
 
 
     }
+
+    
    

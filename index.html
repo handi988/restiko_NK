@@ -12,13 +12,41 @@
 
 <body>
     <!-- En tete  -->
-    <div id="mainScreen">
-        <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid">
         <div class="container text-center">
             <h1 class="display-4">Application restiko</h1>
             <p class="lead"> ici vous pouvez retrouver toute mes Veille durant ma formation à la CCISM</p>
         </div>
+    </div>
+    <!-- ecran de connexion  -->
+
+    <div id="conect">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h1>Veuiller vous connecter </h1>
+
+                    <form>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Login </label>
+                          <input type="text" class="form-control" id="loginAdmin" placeholder="" value="">
+                          <small id="emailHelp" class="form-text text-muted">il vous été communiquez lors de la livraison de l'application</small>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Mot de passe</label>
+                          <input type="password" class="form-control" id="mdpAdmin" placeholder="">
+                        </div>
+                        
+                        <div class="btn btn-primary" onclick="conect()">Submit</div>
+                      </form>
+                </div>
+            </div>
         </div>
+    </div>
+    <div id="mainScreen">
+        <button id="boutonAdd" type="button" class="btn" data-toggle="modal" data-target="#ajoutRestiko">+</button>
+
+
         <div class="container">
                     <div class="row">
                         <div class="col text-center mb-5">
@@ -50,12 +78,9 @@
     </div>
 
     <div id=screen2>
-            <!-- En tete  -->
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container text-center">
-                <h1 class="display-4 titre article">restiko de Kim Nechachby</h1>
-            </div>
-        </div>
+        <button id="boutonAdd" type="button" class="btn" data-toggle="modal" data-target="#ajoutRestiko">+</button>
+
+        
         <div id="articleDetail">   
         </div>
 
@@ -71,7 +96,6 @@
         </div>
     </div>
  <!-- Ajout de restiko  -->
-    <button id="boutonAdd" type="button" class="btn" data-toggle="modal" data-target="#ajoutRestiko">+</button>
 
     <div class="modal fade" id="ajoutRestiko" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -223,6 +247,7 @@
     <script src="asset/js/popper.min.js"></script>
     <script src="asset/js/airtable.browser.js"></script>
     <script src="asset/js/config.js"></script>
+    <script src="./asset/js/template.js"></script>
     <script src="asset/js/script.js"></script>
 </body>
 

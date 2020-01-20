@@ -1,7 +1,18 @@
-// varaible global
+console.log("local",localStorage.getItem('user'))
+console.log("local2", localStorage.getItem('mdp'))
 
+// localStorage
+if (localStorage.getItem('user') != null || localStorage.getItem('mdp') != null) {
+    $('#conect').hide();
+    $('#mainScreen').show();
 
-// connextion 
+   }
+   else{
+    $('#conect').show();
+    $('#mainScreen').hide();
+   }
+
+// connection 
 function conect () {
 
 
@@ -19,8 +30,8 @@ function conect () {
             {
                 if($('#mdpAdmin').val() == record.get('password')){
                     // alert ("ok")
-                    sessionStorage.setItem('user', record.get('user'))
-                    sessionStorage.setItem('mdp', record.get('password'))
+                    localStorage.setItem('user', record.get('user'))
+                    localStorage.setItem('mdp', record.get('password'))
 
                     GoMainScrenn()
                 }
@@ -30,6 +41,8 @@ function conect () {
                     }
                 }
 
+            }else{
+                alert("veuillez vérifier vos identifiant")
             }
            
         });
@@ -51,7 +64,22 @@ function conect () {
        $('#mainScreen').show();
    }
 
+  
 
+    
+
+    $('#disconnect').click(function(){
+     alert("deco")
+      localStorage.removeItem('user');
+      localStorage.removeItem('mdp')
+      $("#mainScreen").hide();
+        $("#conect").show();
+        
+  
+    })
+
+    $("#conect").show();
+    $("#mainScreen").hide();
 // recuperation des donnee 
     base('RESTIKO').select({
         // Selecting the first 3 records in Grid view:

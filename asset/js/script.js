@@ -247,13 +247,4 @@ var restikoTemplate =
 
 
     }
-    // supprimer le restiko 
-    function deleteRestiko(){
-        base('RESTIKO').destroy([record.id], function(err, deletedRecords) {
-            if (err) {
-              console.error(err);
-              return;
-            }
-            console.log('Deleted', deletedRecords.length, 'records');
-          });
-    }
+   

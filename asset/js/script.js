@@ -15,6 +15,7 @@ else{
 
 // connection 
 function conect () {
+    $('#infoError').html("")
 
 
     base('admin').select({
@@ -78,6 +79,8 @@ function conect () {
     
 // fonction deconnexion
     $('.disconnect').click(function(){
+    $('#infoError').html("")
+
     $("#mainScreen").hide();
     $('#screen2').hide()
     $("#conect").show();

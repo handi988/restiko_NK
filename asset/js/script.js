@@ -37,7 +37,7 @@ function conect () {
                     GoMainScrenn()
                 }
                 else{
-                    if($('#loginAdmin').val("")){
+                    if($('#loginAdmin').val()){
                         alert("veuillez entrer un mot de passe")
                     }
                 }
@@ -211,7 +211,7 @@ function conect () {
     console.log(record.getId());
   });
 });
-
+alert("votre restiko a bien été enregistré ")
 
     }
 

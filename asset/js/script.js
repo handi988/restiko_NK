@@ -38,12 +38,12 @@ function conect () {
                 }
                 else{
                     if($('#mdpAdmin').val()){
-                        $('#infoError').html("Veuillez vérifier votre mdp")
+                        $('#infoError').html("Veuillez vérifier votre mot de passe")
                     }
                 }
 
             } else{
-                $('#infoError').html("Veuillez vérifier votre users")
+                $('#infoError').html("Veuillez vérifier votre login")
 
             }
 

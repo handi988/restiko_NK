@@ -3,9 +3,9 @@
 {
     display: none;
 }
-#conect #btn-disconnect
+#infoError
 {
-    display: none;
+    color: red;
 }
 .linkTo {
     cursor: pointer;

@@ -37,12 +37,17 @@ function conect () {
                     GoMainScrenn()
                 }
                 else{
-                    if($('#loginAdmin').val()){
-                        alert("veuillez entrer un mot de passe")
+                    if($('#mdpAdmin').val()){
+                        $('#infoError').html("Veuillez vérifier votre mdp")
                     }
                 }
 
+            } else{
+                $('#infoError').html("Veuillez vérifier votre users")
+
             }
+
+            
            
         });
     

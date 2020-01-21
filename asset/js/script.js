@@ -1,13 +1,17 @@
 console.log("local",localStorage.getItem('user'))
 console.log("local2", localStorage.getItem('mdp'))
-$('#conect').show();
-$('#mainScreen').hide();
+// $('#conect').show();
+// $('#mainScreen').hide();
 
 // localStorage
-if (localStorage.getItem('user') != null || localStorage.getItem('mdp') != null) {
-    $('#conect').hide();
-    $('#mainScreen').show();
-   }
+if (localStorage.getItem('user') != null || localStorage.getItem('mdp') != undefined) 
+{
+    
+   goToConnect()
+}
+else{
+
+}
 
 // connection 
 function conect () {
@@ -38,8 +42,6 @@ function conect () {
                     }
                 }
 
-            }else{
-                alert("veuillez vérifier vos identifiant")
             }
            
         });
@@ -60,23 +62,25 @@ function conect () {
         $('#conect').hide();
        $('#mainScreen').show();
    }
+   function goToConnect ()
+   {
+    $('#conect').hide();
+    $('#mainScreen').show();
+   }
 
   
 
     
-
-    $('#disconnect').click(function(){
-     alert("deco")
-      localStorage.removeItem('user');
-      localStorage.removeItem('mdp')
-      $("#mainScreen").hide();
-        $("#conect").show();
-        
+// fonction deconnexion
+    $('.disconnect').click(function(){
+    $("#mainScreen").hide();
+    $('#screen2').hide()
+    $("#conect").show();
+     localStorage.clear()
   
     })
 
-    $("#conect").show();
-    $("#mainScreen").hide();
+    
 // recuperation des donnee 
     base('RESTIKO').select({
         // Selecting the first 3 records in Grid view:
@@ -147,6 +151,9 @@ function conect () {
     }, function done(err) {
         if (err) { console.error(err); return; }
     });
+
+
+
 // changement d'écran avec le bonne article qui correspond au lien 
 
     function displayArticle(articleId) {
@@ -154,15 +161,16 @@ function conect () {
         $('#screen2').show()
         $('.'+articleId).show()
     }
-    function backlisting (){
-        document.location.reload(true);
+// retour à la liste
 
-        
-        
+    function backlisting (){
+        document.location.reload(true);  
     }
 
+    // ahouter un restiko 
     function addRestiko(){
     
+        // recuperation du formulaire de airtable 
         var inputDate= $('.newRestikoDate').val()
         var inputFait= $('.jAiAppris').val()
         var inputAppris= $('.jAiAppris').val()
@@ -177,7 +185,7 @@ function conect () {
 
         
         
-        
+        // on ajout dans airtable 
         base('RESTIKO').create([
             {
               "fields": {

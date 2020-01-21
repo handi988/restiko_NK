@@ -1,5 +1,9 @@
-#screen2,#mainScreen
+#screen2,#mainScreen,.article
 
+{
+    display: none;
+}
+#conect #btn-disconnect
 {
     display: none;
 }
@@ -9,9 +13,7 @@
 .linkTo:hover {
     color: blue;
 }
-.article {
-    display: none;
-}
+ 
 .titreListe
 {
     font-weight: bold;

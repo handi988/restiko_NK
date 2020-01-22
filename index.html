@@ -186,7 +186,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="formGroupExampleInput11">votre note ?</label>
+                            <label for="formGroupExampleInput11">Votre note ?</label>
                             <input type="text" class="form-control champNote" id="formGroupExampleInput11"
                                 placeholder="">/5
                         </div>
@@ -210,7 +210,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">modifier le Restiko </h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modifier le Restiko </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -270,15 +270,34 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="addRestiko()"
-                        data-dismiss="modal">Validez</button>
+                    <button id="btnmessageError" class="btn btn-primary" type="button" class="btn" data-toggle="modal" data-target="#messageError" data-dismiss="modal">Mettre a jour</button>
                 </div>
             </div>
         </div>
+
     </div>
+<!-- erreur update -->
+    <div class="modal fade" id="messageError" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Errreur</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+             Malheuresement votre restiko , n'as pas pu etre sauvgardé . nous travaillons actuellement sur le problème
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              
 
+          </div>
+          </div>
 
-
+        </div>
+      </div>
 
 
     <!-- script -->

@@ -1,9 +1,10 @@
 
+var login = sessionStorage.getItem('user')
 
 // localStorage
-if (sessionStorage.getItem('user') != null || localStorage.getItem('mdp') != undefined) 
-{
-    
+if (sessionStorage.getItem('user') != null || sessionStorage.getItem('mdp') != undefined) 
+{  
+
    goToConnect()
 }
 else{
@@ -31,11 +32,11 @@ function conect () {
                     // alert ("ok")
                     sessionStorage.setItem('user', record.get('user'))
                     sessionStorage.setItem('mdp', record.get('password'))
-                    loginName = sessionStorage.getItem('user')
+                   
 
                     GoMainScrenn()
                     // affichage du nom de l'admin connnecté
-                    $('.nameAdmin').html('Bonjour ' + loginName)
+                    $('.nameAdmin').html('Bonjour ' + login )
                 }
                 else{
                     if($('#mdpAdmin').val()){
@@ -173,6 +174,7 @@ function conect () {
 
     function backlisting (){
         document.location.reload(true);  
+        
     }
 
     // ahouter un restiko 

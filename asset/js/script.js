@@ -1,10 +1,7 @@
-console.log("local",localStorage.getItem('user'))
-console.log("local2", localStorage.getItem('mdp'))
-// $('#conect').show();
-// $('#mainScreen').hide();
+
 
 // localStorage
-if (localStorage.getItem('user') != null || localStorage.getItem('mdp') != undefined) 
+if (sessionStorage.getItem('user') != null || localStorage.getItem('mdp') != undefined) 
 {
     
    goToConnect()
@@ -32,10 +29,13 @@ function conect () {
             {
                 if($('#mdpAdmin').val() == record.get('password')){
                     // alert ("ok")
-                    localStorage.setItem('user', record.get('user'))
-                    localStorage.setItem('mdp', record.get('password'))
+                    sessionStorage.setItem('user', record.get('user'))
+                    sessionStorage.setItem('mdp', record.get('password'))
+                    loginName = sessionStorage.getItem('user')
 
                     GoMainScrenn()
+                    // affichage du nom de l'admin connnecté
+                    $('.nameAdmin').html('Bonjour ' + loginName)
                 }
                 else{
                     if($('#mdpAdmin').val()){
@@ -84,7 +84,7 @@ function conect () {
     $("#mainScreen").hide();
     $('#screen2').hide()
     $("#conect").show();
-     localStorage.clear()
+     sessionStorage.clear()
   
     })
 
